@@ -45,16 +45,16 @@ task("bridge", "Bridge ASTR")
         let localContractInstance;
         switch (taskArgs.targetNetwork) {
             case "astar":
-                oftAddress = "0x112cA47f9c891aB3813d8196ca7530D3cE26336C"
-                localContractInstance = await hre.ethers.getContractAt("contracts/OFTWithFee.sol:OFTWithFee", "0x112cA47f9c891aB3813d8196ca7530D3cE26336C", owner)
+                oftAddress = "0x9fC8d99a5eC47cDDea778fd28E1d67094075c603"
+                localContractInstance = await hre.ethers.getContractAt("contracts/OFTWithFee.sol:OFTWithFee", "0x9fC8d99a5eC47cDDea778fd28E1d67094075c603", owner)
                 break;
             case "zk-astar":
-                oftAddress = "0xebF4772c800CA56504A8695D657Da3901d05948b"
-                localContractInstance = await hre.ethers.getContractAt("contracts/OFTNativeWithFee.sol:NativeOFTWithFee", "0xebF4772c800CA56504A8695D657Da3901d05948b", owner)
+                oftAddress = "0xC0297833040Df48141d31BF860A3f4766cec69c2"
+                localContractInstance = await hre.ethers.getContractAt("contracts/OFTNativeWithFee.sol:NativeOFTWithFee", "0xC0297833040Df48141d31BF860A3f4766cec69c2", owner)
                 break;
             default:
-                oftAddress = "0x112cA47f9c891aB3813d8196ca7530D3cE26336C"
-                localContractInstance = await hre.ethers.getContractAt("contracts/OFTWithFee.sol:OFTWithFee", "0x112cA47f9c891aB3813d8196ca7530D3cE26336C", owner)
+                oftAddress = "0x9fC8d99a5eC47cDDea778fd28E1d67094075c603"
+                localContractInstance = await hre.ethers.getContractAt("contracts/OFTWithFee.sol:OFTWithFee", "0x9fC8d99a5eC47cDDea778fd28E1d67094075c603", owner)
                 break;
         }
 
