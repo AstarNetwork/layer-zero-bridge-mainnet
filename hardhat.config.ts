@@ -45,16 +45,16 @@ task("bridge", "Bridge ASTR")
         let localContractInstance;
         switch (taskArgs.targetNetwork) {
             case "astar":
-                oftAddress = "0x9fC8d99a5eC47cDDea778fd28E1d67094075c603"
-                localContractInstance = await hre.ethers.getContractAt("contracts/OFTWithFee.sol:OFTWithFee", "0x9fC8d99a5eC47cDDea778fd28E1d67094075c603", owner)
+                oftAddress = "0xdf41220C7e322bFEF933D85D01821ad277f90172"
+                localContractInstance = await hre.ethers.getContractAt("contracts/OFTWithFee.sol:OFTWithFee", "0xdf41220C7e322bFEF933D85D01821ad277f90172", owner)
                 break;
             case "zk-astar":
-                oftAddress = "0xC0297833040Df48141d31BF860A3f4766cec69c2"
-                localContractInstance = await hre.ethers.getContractAt("contracts/OFTNativeWithFee.sol:NativeOFTWithFee", "0xC0297833040Df48141d31BF860A3f4766cec69c2", owner)
+                oftAddress = "0xdf41220C7e322bFEF933D85D01821ad277f90172"
+                localContractInstance = await hre.ethers.getContractAt("contracts/OFTNativeWithFee.sol:NativeOFTWithFee", "0xdf41220C7e322bFEF933D85D01821ad277f90172", owner)
                 break;
             default:
-                oftAddress = "0x9fC8d99a5eC47cDDea778fd28E1d67094075c603"
-                localContractInstance = await hre.ethers.getContractAt("contracts/OFTWithFee.sol:OFTWithFee", "0x9fC8d99a5eC47cDDea778fd28E1d67094075c603", owner)
+                oftAddress = "0xdf41220C7e322bFEF933D85D01821ad277f90172"
+                localContractInstance = await hre.ethers.getContractAt("contracts/OFTWithFee.sol:OFTWithFee", "0xdf41220C7e322bFEF933D85D01821ad277f90172", owner)
                 break;
         }
 
@@ -90,7 +90,7 @@ task("bridge", "Bridge ASTR")
           zroPaymentAddress: hre.ethers.ZeroAddress, // address(0x0) if not paying in ZRO (LayerZero Token)
           adapterParams: adapterParams                     // flexible bytes array to indicate messaging adapter services
         },
-        { value: hre.network.name === "astar" ? newFee : fees[0], gasLimit: 10000000, nonce: nonce++ }
+        { value: hre.network.name === "astar" ? newFee : fees[0], gasLimit: 1000000, nonce: nonce++ }
         )
     
     console.log(`✅ Message Sent [${hre.network.name}] sendTokens() to OFT @ LZ chainId[${remoteChainId}]`)
