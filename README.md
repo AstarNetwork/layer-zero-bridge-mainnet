@@ -15,3 +15,13 @@ To send 1ASTR from `astar`(`astar L1 mainnet`) to `zk-astar`(`Astar zkEVM`), run
 To send  1ASTR from `zk-astar`(`Astar zkEVM`) to `astar`(`astar L1 mainnet`), run the following command (Note that the `--quantity` flag is in wei):
 
 `npx hardhat bridge --quantity 1000000000000000000 --target-network astar --network zk-astar`
+
+## Bridge XC20 DOT
+
+To send 1 DOT from `astar`(`Astar L1`) to `zkEVM`, run the following command (Note that the `--quantity` flag is in wei):
+
+`npx hardhat BridgeDOT --quantity 1000000000000000000 --target-network zk-astar --network astar`
+
+To send  1 lzDOT from `zkatan-testnet` to `astar-testnet`(`shibuya`), run the following command (Note that the `--quantity` flag is in wei):
+
+`npx hardhat BridgeDOT --quantity 1000000000000000000 --target-network astar --network zk-astar`
