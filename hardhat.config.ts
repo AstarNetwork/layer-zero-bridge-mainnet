@@ -115,8 +115,6 @@ task("BridgeDOT", "Bridge XC20 DOT")
             return
         }
 
-        let erc20 = await hre.ethers.getContractAt("contracts/OFTWithFee.sol:IERC20", "0xFFfFfFffFFfffFFfFFfFFFFFffFFFffffFfFFFfF", owner)
-
         // get remote chain id
         const remoteChainId = ENDPOINT_ID[taskArgs.targetNetwork]
 
@@ -129,7 +127,10 @@ task("BridgeDOT", "Bridge XC20 DOT")
         // quote send function
         let fees = await localContractInstance.estimateSendFee(remoteChainId, toAddressBytes32, qty, false, adapterParams)
 
-        await erc20.approve(oftAddress, qty, { gasLimit: 10000000, nonce: nonce++ })
+        if (taskArgs.targetNetwork === "zk-astar") {
+            let erc20 = await hre.ethers.getContractAt("contracts/OFTWithFee.sol:IERC20", "0xFFfFfFffFFfffFFfFFfFFFFFffFFFffffFfFFFfF", owner)
+            await erc20.approve(oftAddress, qty, { gasLimit: 10000000, nonce: nonce++ })
+        }
 
         const tx = await localContractInstance.sendFrom(
             owner.address,                                       // 'from' address to send tokens
